@@ -39,8 +39,6 @@ public class GG {
     // MAIN STORY
     static void mainStory(){
         
-        
-        
         System.out.println("???: Hi, I'm Professor Delamaine");
         System.out.println("Delamaine: What is your name?");
         System.out.print("Enter your Name: ");
@@ -50,9 +48,7 @@ public class GG {
         System.out.println("Delamaine: Choose your pokemon");
         
         pokeChoice();
-        
-        
-     
+        RenamePokemon();
     }
     
     static void pokeChoice(){
@@ -61,7 +57,7 @@ public class GG {
                     System.out.println("""
                            1. Charmander
                            2. Squirtle
-                           3? Bulbasaur
+                           3. Bulbasaur
                            """);
         System.out.print("Choose a pokemon (1-3): ");
         pokeChoice = sc.nextInt();
@@ -77,7 +73,35 @@ public class GG {
                         isChoosingPokemon = false;
             break;
             default: System.out.println("That's not a pokemon! Please choose again");
-        }
+          }
         }
     }
-}
+    
+    static void RenamePokemon(){
+        int renameOption;
+        String PokemonNewName;
+        boolean renameRunning = true;
+        
+        System.out.println("Do you want to rename your pokemon?");
+        System.out.println("1. Yes");
+        System.out.println("2. No");
+       
+        do{
+        System.out.print("> ");
+        renameOption = sc.nextInt();
+        sc.nextLine();
+            switch(renameOption){
+            case 1:System.out.print("Enter your pokemon's new name: ");
+                        PokemonNewName = sc.nextLine();
+                        System.out.println("You renamed your pokemon " + PokemonNewName);
+                        renameRunning = false;
+                        break;
+            case 2: renameRunning = false;
+                        break;
+            default: System.out.println("Quit being indecisive!");
+          }
+        }
+        
+        while(renameRunning);
+        }
+    }
