@@ -3,13 +3,42 @@ import java.util.*;
 
 public class GG {
     
+    // Stat Order PokeName, PokeType, level, bHp, bAtk, bSp_Atk, bDef, bSp_def, bSpd
+    
+    //STARTER POKEMONS
+    static Pokemon Bulbasaur = new Pokemon("Bulbasaur", "Grass", 5, 45, 49, 65, 49, 65, 45);
     static Pokemon Charmander = new Pokemon("Charmander", "Fire", 5, 39, 52, 60, 43, 50, 65);
+    static Pokemon Squirtle = new Pokemon("Squirtle", "Water", 5, 44, 48, 50, 65, 64, 43);
+    
+    //SPACE FOR FUTURE POKEMONS
+    //--------------------------------------------
+    
+    //--------------------------------------------
     static Scanner sc = new Scanner (System.in);
+    
+    //Static Variables
     static boolean isMainMenuRunning = true;
-    static boolean isChoosingPokemon = true;
     static int MainMenuChoice;
     static String mcName;
     
+    // Input Validation
+    static int getIntInput(){
+        while(true){
+            try{
+            int input = sc.nextInt();
+            sc.nextLine();
+            return input;
+            
+            }
+            catch (InputMismatchException e) {
+            String badInput = sc.nextLine();
+            System.out.println("-------------------------------------------------------");
+            System.out.println(badInput + " is not a number!");
+            System.out.println("Please Try Again!");
+            System.out.print("> "); 
+        }   
+    }
+  }
     // MAIN 
     public static void main(String[] args) {
         
@@ -24,8 +53,7 @@ public class GG {
             System.out.println("1. Start");
             System.out.println("2. Close");
             System.out.print("Enter your choice: ");
-            MainMenuChoice = sc.nextInt();
-            sc.nextLine();
+            MainMenuChoice = getIntInput();
             
             switch (MainMenuChoice){
                 case 1: mainStory(); 
@@ -33,7 +61,10 @@ public class GG {
                 break;
                 case 2: isMainMenuRunning = false;
                 break;
-                default: System.out.println("Invalid choice! Please try again");
+                
+                default: 
+                    System.out.println("-------------------------------------------------------");
+                    System.out.println("Invalid choice! Please try again");
             }
         }
 }
@@ -54,6 +85,7 @@ public class GG {
     
     static void pokeChoice(){
         int pokeChoice;
+        boolean isChoosingPokemon = true;
         while(isChoosingPokemon){
                     System.out.println("""
                            1. Charmander
@@ -61,19 +93,21 @@ public class GG {
                            3. Bulbasaur
                            """);
         System.out.print("Choose a pokemon (1-3): ");
-        pokeChoice = sc.nextInt();
+        pokeChoice = getIntInput();
         
         switch(pokeChoice){
-            case 1: System.out.println("You chose Charmander!");
+            case 1: System.out.println("You chose " + Charmander.PokeName + "!");
                         isChoosingPokemon = false;
             break;
-            case 2: System.out.println("You chose Squirtle!");
+            case 2: System.out.println("You chose " + Squirtle.PokeName + "!");
                        isChoosingPokemon = false;
             break;
-            case 3: System.out.println("You chose Bulbasaur!");
+            case 3: System.out.println("You chose " + Bulbasaur.PokeName + "!");
                         isChoosingPokemon = false;
             break;
-            default: System.out.println("That's not a pokemon! Please choose again");
+            default: 
+                System.out.println("-------------------------------------------------------");
+                System.out.println("That's not a pokemon! Please choose again");
           }
         }
     }
@@ -89,17 +123,19 @@ public class GG {
        
         do{
         System.out.print("> ");
-        renameOption = sc.nextInt();
-        sc.nextLine();
+        renameOption = getIntInput();
             switch(renameOption){
             case 1:System.out.print("Enter your pokemon's new name: ");
                         PokemonNewName = sc.nextLine();
                         System.out.println("You renamed your pokemon " + PokemonNewName);
                         renameRunning = false;
                         break;
-            case 2: renameRunning = false;
+            case 2: System.out.println("You decided not to rename your pokemon" );
+                        renameRunning = false;
                         break;
-            default: System.out.println("Quit being indecisive!");
+            default: 
+                System.out.println("-------------------------------------------------------");
+                System.out.println(renameOption +" is not an option!");
           }
         }
         
