@@ -2,7 +2,8 @@ package gg;
 import java.util.*;
 
 public class GG {
-      
+    
+    static Pokemon Charmander = new Pokemon("Charmander", "Fire", 5, 39, 52, 60, 43, 50, 65);
     static Scanner sc = new Scanner (System.in);
     static boolean isMainMenuRunning = true;
     static boolean isChoosingPokemon = true;

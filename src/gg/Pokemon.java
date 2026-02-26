@@ -6,9 +6,9 @@ class Pokemon {
     String PokeType;
     int level;
     int maxHp, hp, attack, spAttack, defense, spDefense,  speed;
-    ArrayList<Move> moves = new ArrayList<>();
+    // ArrayList<Move> moves = new ArrayList<>();
     
-    public Pokemon(String PokeName, String PokeType, int level, int bHP, int bAtk, int bSp_Atk, int bDef, int bSp_def,  int bSpd){
+    public Pokemon(String PokeName, String PokeType, int level, int bHP, int bAtk, int bSp_Atk, int bDef, int bSp_def, int bSpd){
         this.PokeName = PokeName;
         this.PokeType = PokeType;
         this.level = level;
